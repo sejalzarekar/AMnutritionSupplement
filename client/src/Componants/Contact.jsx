@@ -4,6 +4,7 @@ import { FaStore, FaMapMarkerAlt, FaClock, FaEnvelope } from "react-icons/fa";
 
 const Contact = () => {
   return (
+
     <div className="flex flex-col items-center justify-center w-full px-4 m-5">
       {/* Contact Us Section */}
       <div
