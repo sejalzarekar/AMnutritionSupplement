@@ -1,12 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './Componants/Navbar';
+import Home from './Componants/Home'; // Create these components
+import Products from './Componants/Products';
+import About from './Componants/About';
+import Contact from './Componants/Contact';
+import Cart from './Componants/Cart';
 
-function App() {
+const App = () => {
   return (
-    <>
-   <h1>Hi i am mahesh</h1>
-    </>
+    <Router>
+      <Navbar />
+      <Routes>
+    
+        <Route path="/" element={<Home/>} />
+        <Route path="/about" element={<About/>} />
+        <Route path="/products" elementt={<Products/>} />
+        <Route path="/contact" element={<Contact/>} />
+        <Route path="/cart" element={<Cart/>} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
