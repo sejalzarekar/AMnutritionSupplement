@@ -1,5 +1,6 @@
 import React from "react";
 import { FaStore, FaMapMarkerAlt, FaClock, FaEnvelope } from "react-icons/fa";
+import Form from "./Form";
 
 
 const Contact = () => {
@@ -89,6 +90,23 @@ const Contact = () => {
           </div>
         </div>
       </div>
+
+      <div className="flex flex-col items-center justify-center mt-5">
+      {/* Heading */}
+      <h2 className="text-5xl font-bold text-center">
+        <span className="" style={{color:"gray", fontSize:"80px"}}> <b>SEND US</b>  </span>
+        <span className="text-dark" style={{fontSize:"80px"}}> <b>FEEDBACK</b> </span>
+      </h2>
+
+      {/* Subtitle */}
+      <p className="text-center mt-4" style={{fontSize:"20px"}}>
+        For more information and how we can meet your needs, please fill out the form below and someone from our team will be in touch.
+      </p>
+
+            <Form />
+            
+
+    </div>
     </div>
   );
 };
