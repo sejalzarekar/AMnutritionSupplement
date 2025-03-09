@@ -4,9 +4,14 @@
 // Home.js
 import React from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import './Carausal'
+import Carausal from './Carousel';
 
 const Home = () => {
   return (
+<>
+  <Carausal/>
+
     <Container className="mt-4">
       <header className="text-center mb-4">
         <h1>Welcome to Gym Supplements Store</h1>
@@ -53,6 +58,7 @@ const Home = () => {
         </Col>
       </Row>
     </Container>
+    </>
   );
 };
 

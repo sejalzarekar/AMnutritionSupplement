@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState}from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import './Navbar.css'
 
@@ -6,18 +6,68 @@ import './Navbar.css'
 const Navbar = () => {
   const location = useLocation();
 
+  const [isVisible, setIsVisible] = useState(true);
   const isDropdownActive =
   location.pathname === "/action" ||
   location.pathname === "/another-action" ||
   location.pathname === "/something-else";
+
+  
   return (
     <>
+{
+isVisible && (
+      <div
+        className="d-flex items-center px-4  w-full"
+        style={{ background: "#75f542", display: "flex", alignItems: "center", height:'40px' }}
+      >
+        {/* Contact Number on the Left */}
+        <span className="text-black font-bold  whitespace-nowrap" style={{ marginRight: "200px", fontSize:"15px" }}>
+         <b> 📞 Contact: 9075014816</b>
+        </span>
+
+        {/* Marquee Wrapper with Fixed Width */}
+        <div
+          style={{
+            flex: 1, // Makes the marquee take available space
+            maxWidth: "60%", // Keeps it centered
+            overflow: "hidden",
+            whiteSpace: "nowrap",
+            marginRight: "100px",
+            fontSize: '25px'
+          }}
+        >
+          <marquee behavior="scroll" direction="left" className="text-black font-semibold fs-6"  style={{ marginRight: "100px" }}>
+           <b> ✅ All Payment Accepted | 🛒 Sale 30% to 40% Off on Selected Items | ⏳ Ends in: Limited Time! | 🚚 All India Delivery Available</b>
+          </marquee>
+        </div>
+
+        {/* Close Button on the Rightmost Corner */}
+        <button
+          onClick={() => setIsVisible(false)}
+          className="text-black font-bold "
+          style={{
+            background: "transparent",
+            border: "none",
+            cursor: "pointer",
+            fontSize: "12px",
+            marginLeft: "auto", // Pushes the button to the rightmost side
+            paddingRight: "10px", // Adds a small gap from the right edge
+          }}
+        >
+          ❌
+        </button>
+      </div>
+    )
+  }
+
+    
     <nav className="navbar bg-body-tertiary">
       <div className="container d-flex justify-content-between align-items-center">
         
         {/* Logo Section */}
-        <Link className="navbar-brand w-25" to="/">
-          <img src="/assets/Logo.jpg" alt="Logo" className="img-fluid w-25" />
+        <Link className="navbar-brand " to="/">
+          <img src="/assets/Logo.jpg" alt="Logo" className="img-fluid " style={{ width: "70px", height: "auto" }}/>
         </Link>
 
         {/* Cart Icon with Badge */}
@@ -39,7 +89,7 @@ const Navbar = () => {
 
 <nav className="navbar navbar-expand-lg bg-body-tertiary">
   <div className="container-fluid">
-    <NavLink className="navbar-brand ms-5" to="/"> <span className="bi bi-geo-alt-fill me-1 text-danger "> <span className='text-dark  small fs-6'>- FIND A STORE</span> </span></NavLink>
+    <NavLink className="navbar-brand ms-5" to="/"> <span className="bi bi-geo-alt-fill me-1 text-danger "> <span className='text-dark' style={{fontSize:"15px"}}>- FIND A STORE</span> </span></NavLink>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
@@ -91,6 +141,12 @@ const Navbar = () => {
         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
         <button className="btn btn-outline-success" type="submit">Search</button>
       </form>
+
+      
+      <NavLink class="text-center me-5  text-dark" to="/login">
+    <i class="bi bi-person-circle text-dark fs-3"></i>
+</NavLink>
+
     </div>
   </div>
 </nav>
